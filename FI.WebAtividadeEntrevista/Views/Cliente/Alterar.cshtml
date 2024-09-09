@@ -1,0 +1,25 @@
+﻿@model WebAtividadeEntrevista.Models.ClienteModel
+@{
+    ViewBag.Title = "Alterar Cliente";
+}
+@section scripts{
+    <script>
+        var obj = @Html.Raw(Json.Encode(Model));
+
+        var urlAlterarBeneficiarioList = '@Url.Action("AlterarBeneficiarioList", "Beneficiario", new { area = "" })';
+        var urlBeneficiarioList = '@Url.Action("BeneficiarioList", "Beneficiario", new { area = "" })';
+        var urlExcluirBeneficiarioList = '@Url.Action("ExcluirBeneficiarioList", "Beneficiario", new { area = "" })';
+        var urlIncluirBeneficiarioList = '@Url.Action("IncluirBeneficiarioList", "Beneficiario", new { area = "" })';
+        var urlVerificarCPFBeneficiarioExistente = '@Url.Action("VerificarCPFBeneficiarioExistente", "Beneficiario", new { area = "" })';
+
+        var urlPost = '@Url.Action("Alterar", "Cliente", new { area = "" })';
+        var urlVerificarCPFExistente = '@Url.Action("VerificarCPFExistente", "Cliente", new { area = "" })';
+        var urlRetorno = '@Url.Action("Index", "Cliente", new { area = "" })';
+    </script>
+
+    @Scripts.Render("~/bundles/altClientes")
+    @Scripts.Render("~/bundles/listBeneficiarios")
+    @Scripts.Render("~/bundles/utilsClientes")
+}
+<h2>@Html.Raw(ViewBag.Title)</h2>
+@Html.Partial("Forms")
